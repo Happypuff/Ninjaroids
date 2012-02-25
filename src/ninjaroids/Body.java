@@ -27,6 +27,7 @@ public class Body
     AffineTransform bodyTransform = new AffineTransform();
     Rectangle2D.Double bodyRectangle;
     Area bodyArea;
+    AffineTransform identity = new AffineTransform();
 
     public Body()
     {
@@ -35,7 +36,7 @@ public class Body
     public Body(Image bodyImage, int bodyXarg, int bodyYarg, int bodyCourse, int bodySpeed)//for food
     {
         setBodyCourse(bodyCourse);
-        setBodySpeed(bodySpeed);
+        setBodySpeed(2);
         setBodyImage(bodyImage);
         bodyRectangle = new Rectangle2D.Double(0, 0, bodyImage.getWidth(null), bodyImage.getHeight(null));
         bodyArea = new Area(bodyRectangle);
@@ -60,20 +61,19 @@ public class Body
 
     public void paintSelf(Graphics2D g2)
     {
+        g2.transform(identity);
         //rotation += rotationSpeed;
         deltaX = bodySpeed * Math.sin(Math.toRadians(bodyCourse));
         deltaY = (-1 * bodySpeed * Math.cos(Math.toRadians(bodyCourse)));
-        bodyRectangle.x += deltaX;
-        bodyRectangle.y += deltaY;
-        bodyTransform.setToTranslation(bodyRectangle.x, bodyRectangle.y);
-       // bodyTransform.rotate(rotation);
-        bodyArea.createTransformedArea(bodyTransform);
+        bodyArea.translate(deltaX, deltaY);
+        //bodyTransform.rotate(rotation);
+        bodyArea.createTransformedArea(g2.getTransform());
         g2.transform(bodyTransform);
         g2.setColor(Color.red);
         g2.draw(bodyArea);
         g2.setColor(Color.yellow);
-        g2.draw(bodyRectangle);
         g2.drawImage(bodyImage, 0, 0, null);
+        //bodyTransform.setToIdentity();
     }
 
     public double getDeltaX()
