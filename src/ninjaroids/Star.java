@@ -7,9 +7,10 @@ public class Star extends Body
 {
     public Star(int starXarg, int starYarg, int starCourse, int starSpeed)
     {
-        super(starXarg, starYarg, starCourse, starSpeed);
+        super(null, starXarg, starYarg, starCourse, starSpeed);
     }
 
+    /*
     @Override
     public void paintSelf(Graphics2D g2)
     {
@@ -18,4 +19,6 @@ public class Star extends Body
         g2.drawImage(null, bodyTransform, null);
         g2.setTransform(bodyTransform);
     }
+    * 
+    */
 }
