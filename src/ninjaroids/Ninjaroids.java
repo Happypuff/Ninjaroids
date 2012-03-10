@@ -3,8 +3,8 @@ package ninjaroids;
 /*******************************************************
  *                                                     *
  *            ~Copyright 2012 Heidi Erwin~             *
- *                     ~Version 1.6~                   *
- *                 ~January 28th, 2012~                *
+ *                     ~Version 1.9~                   *
+ *                 ~March 10th, 2012~                *
  *                                                     *
  *******************************************************/
 import java.awt.Color;
@@ -67,7 +67,7 @@ public class Ninjaroids extends JComponent implements KeyListener, ActionListene
     ArrayList<Food> foodList;
     ArrayList<Star> starList;
     int foodCourse;
-    String version = "1.5";
+    String version = "1.9";
 
     public static void main(String[] args)
     {
