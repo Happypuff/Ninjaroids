@@ -4,7 +4,7 @@ package ninjaroids;
  *                                                     *
  *            ~Copyright 2012 Heidi Erwin~             *
  *                     ~Version 1.9~                   *
- *                 ~March 10th, 2012~                *
+ *                 ~March 10th, 2012~                  *
  *                                                     *
  *******************************************************/
 import java.awt.Color;
@@ -148,12 +148,17 @@ public class Ninjaroids extends JComponent implements KeyListener, ActionListene
         {
             f.paintSelf(g2);
         }
+        
         if (starList != null)
         {
             for (Star s : starList)
             {
                 s.paintSelf(g2);
             }
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            
         }
     }
 
